@@ -9,8 +9,12 @@ try {
   const time = (new Date()).toTimeString();
   core.setOutput("time", time);
 
-  fs.readdirSync('./').filter(x => x.includes('.csproj')) .forEach(file => {
-      console.log(file);
+  const files = fs.readdirSync('./').filter(x => x.includes('.csproj'));
+
+  files.forEach(file => {
+      fs.readFileSync(file, "utf8", function(err, data) {
+        console.log(data);
+      });
   });
 
   // Get the JSON webhook payload for the event that triggered the workflow
