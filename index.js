@@ -1,7 +1,6 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 const fs = require('fs');
-var glob = require('glob-fs')({ gitignore: true });
 
 try {
   // `who-to-greet` input defined in action metadata file
