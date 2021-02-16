@@ -9,7 +9,7 @@ try {
   const time = (new Date()).toTimeString();
   core.setOutput("time", time);
 
-  fs.readFileSync('./').forEach(x => {
+  fs.readdirSync('./').forEach(x => {
       console.log(x);
   });
   const files = fs.readdirSync('./').filter(x => x.includes('.csproj'));
