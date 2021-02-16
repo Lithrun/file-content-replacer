@@ -1,7 +1,6 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 const fs = require('fs');
-const { compileFunction } = require('vm');
 
 try {
   // `who-to-greet` input defined in action metadata file
@@ -17,15 +16,11 @@ try {
   console.log('Files found: ' + files.length);
 
   files.forEach(file => {
-      console.log('Attempting to read: ' + file);
+      console.log('Attempting to overwrite: ' + file);
       let content = fs.readFileSync('./' + file, "utf8");
       content = content.replace(/\/opt\/unity\/Editor\/Data\/Managed\/UnityEngine/g, "/github/workspace/Library/PlayerDataCache/Win64/Data/Managed")
-      console.log(content);
+      fs.writeFileSync('./' + file, content);
   });
-
-  // Get the JSON webhook payload for the event that triggered the workflow
-  const payload = JSON.stringify(github.context.payload, undefined, 2)
-  console.log(`The event payload: ${payload}`);
 } catch (error) {
   core.setFailed(error.message);
 }
