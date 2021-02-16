@@ -1,0 +1,24 @@
+{
+  "name": "file-content-replacer",
+  "version": "1.0.0",
+  "description": "GitHub action that will replace the contents of a file",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lithrun/file-content-replacer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lithrun/file-content-replacer/issues"
+  },
+  "homepage": "https://github.com/Lithrun/file-content-replacer#readme",
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "@actions/github": "^4.0.0"
+  }
+}
