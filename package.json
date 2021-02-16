@@ -19,7 +19,6 @@
   "homepage": "https://github.com/Lithrun/file-content-replacer#readme",
   "dependencies": {
     "@actions/core": "^1.2.6",
-    "@actions/github": "^4.0.0",
-    "glob-fs": "^0.1.7"
+    "@actions/github": "^4.0.0"
   }
 }
