@@ -18,7 +18,8 @@ try {
 
   files.forEach(file => {
       console.log('Attempting to read: ' + file);
-      const content = fs.readFileSync('./' + file, "utf8");
+      let content = fs.readFileSync('./' + file, "utf8");
+      content = content.replace(/\/opt\/unity\/Editor\/Data\/Managed\/UnityEngine/g, "/github/workspace/Library/PlayerDataCache/Win64/Data/Managed")
       console.log(content);
   });
 
