@@ -9,7 +9,11 @@ try {
   const time = (new Date()).toTimeString();
   core.setOutput("time", time);
 
+  fs.readFileSync('./').forEach(x => {
+      console.log(x);
+  });
   const files = fs.readdirSync('./').filter(x => x.includes('.csproj'));
+  console.log('Files found: ' + files.length);
 
   files.forEach(file => {
       fs.readFileSync(file, "utf8", function(err, data) {
