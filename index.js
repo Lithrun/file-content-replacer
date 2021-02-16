@@ -1,6 +1,7 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 const fs = require('fs');
+const glob = require('glob-fs')
 
 try {
   // `who-to-greet` input defined in action metadata file
@@ -9,9 +10,14 @@ try {
   const time = (new Date()).toTimeString();
   core.setOutput("time", time);
 
-  fs.readdirSync('./').forEach(file => {
+//   fs.readdirSync('./').forEach(file => {
+//       console.log(file);
+//   });
+
+  const files = glob.readdirSync('*.csproj', {});
+  files.forEach(file => {
       console.log(file);
-  });
+  })
 
   // Get the JSON webhook payload for the event that triggered the workflow
   const payload = JSON.stringify(github.context.payload, undefined, 2)
