@@ -21,7 +21,7 @@ try {
       content = content.replace(/\/opt\/unity\/Editor\/Data\/Managed\/UnityEngine/g, "/github/workspace/Library/PlayerDataCache/Win64/Data/Managed");
       content = content.replace(/\/opt\/unity\/Editor\/Data\/MonoBleedingEdge\/lib\/mono/g, "/github/workspace/SonarQube/mono");
       content = content.replace(/\/opt\/unity\/Editor\/Data\/PlaybackEngines/g, "/github/workspace/SonarQube/PlaybackEngines");
-      content = content.replace(/\/opt\/unity\/Editor\/Data\/Tools\/RoslynScripts/g, "/github/workspace/SonarQube/RoslynScripts");
+      content = content.replace(/<Csc.*>/g, "");
       content = content.replace(/\/opt\/unity\/Editor\/Data\/Managed/g, "/github/workspace/SonarQube/UnityEditor");
       fs.writeFileSync('./' + file, content);
   });
