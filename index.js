@@ -18,6 +18,7 @@ try {
   files.forEach(file => {
       console.log('Attempting to overwrite: ' + file);
       let content = fs.readFileSync('./' + file, "utf8");
+      content = content.replace(/\/opt\/unity\/Editor\/Data\/Managed\/UnityEngine\/UnityEditor/g, "/github/workspace/SonarQube/UnityEditor/UnityEditor");
       content = content.replace(/\/opt\/unity\/Editor\/Data\/Managed\/UnityEngine/g, "/github/workspace/Library/PlayerDataCache/Win64/Data/Managed");
       content = content.replace(/\/opt\/unity\/Editor\/Data\/MonoBleedingEdge\/lib\/mono/g, "/github/workspace/SonarQube/mono");
       content = content.replace(/\/opt\/unity\/Editor\/Data\/PlaybackEngines/g, "/github/workspace/SonarQube/PlaybackEngines");
