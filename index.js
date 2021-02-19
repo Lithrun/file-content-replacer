@@ -17,11 +17,11 @@ try {
   console.log('Files found: ' + files.length);
 
   files.forEach(file => {
-      console.log('Attempting to overwrite: ' + file);
-      
       if (ignoredCsproj.includes(file)) {
+        console.log('Deleting: ' + file);
         fs.unlinkSync(file);
       } else {
+        console.log('Attempting to overwrite: ' + file);
         let content = fs.readFileSync('./' + file, "utf8");
         content = content.replace(/\/opt\/unity\/Editor\/Data\/Managed\/UnityEngine\/UnityEditor/g, "/github/workspace/SonarQube/UnityEditor/UnityEditor");
         content = content.replace(/\/opt\/unity\/Editor\/Data\/Managed\/UnityEngine/g, "/github/workspace/Library/PlayerDataCache/Win64/Data/Managed");
