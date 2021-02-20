@@ -28,6 +28,7 @@ try {
       content = content.replace(/\/opt\/unity\/Editor\/Data\/MonoBleedingEdge\/lib\/mono/g, "/github/workspace/SonarQube/mono");
       content = content.replace(/\/opt\/unity\/Editor\/Data\/PlaybackEngines/g, "/github/workspace/SonarQube/PlaybackEngines");
       content = content.replace(/<Csc.*>/g, "");
+      content = content.replace(/<ReferenceOutputAssembly>false<\/ReferenceOutputAssembly>/g, "<ReferenceOutputAssembly>true</ReferenceOutputAssembly>");
       content = content.replace(/\/opt\/unity\/Editor\/Data\/Managed/g, "/github/workspace/SonarQube/UnityEditor");
       fs.writeFileSync('./' + file, content);
   });
